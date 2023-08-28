@@ -1,3 +1,10 @@
+#David Macy
+#This is a terminal application that asks the user which pieces it would like to use for the faerie chess board game.
+#Once all the pieces have been selected it will count up how many points the user has left or if they picked too many pieces.
+#This was created so people do not need to count up the points themselves but rather have the application do it and let them know if they have points to spare
+
+
+#check to see if there are more than 1 piece or less than 0 pieces selected to see if user picked a valid amount when selecting for rank II pieces
 def check_for_rankII(piece):
     if piece > 1 or piece < 0:
         print("Please select 0 to 1", piece)
@@ -17,6 +24,8 @@ while run:
     print("Hello! Welcome to the Faerie Chess Counter\n\nBegin by choosing the difficulty. Insert B for beginner, I for "
           "intermediate, and A for advanced")
 
+    #This is where the user will select which difficulty they are playing on. The difficulty will determine how many points
+    #they can have when choosing their pieces
     while choose_diff:
         difficulty = input("\nWhat difficulty are you playing on:\n").upper()
         #print(type(difficulty))
@@ -42,6 +51,7 @@ while run:
             difficulty = print("Please choose B, I, or A")
             continue
 
+    #The user can only select 8 rank I pieces so it will break when the user selects more than 8
     while rank_1 < 8:
         rank_1 = 0
         total_points = 0
@@ -108,6 +118,7 @@ while run:
 
     done_selecting = False
 
+    #User can only select 6 rank_2 pieces and will break when the user has selected more than 6
     while rank_2 < 6 and not done_selecting:
         total_points = rankI_points
         rook_value = 9
@@ -239,7 +250,10 @@ while run:
     print("Total points for Rank II & Rank I pieces:", total_points, ". You have", max_points - total_points,
           "points left!\nNow lets pick your Rank III pieces. You can only select 2 Rank III pieces.")
 
+
     rankIII_points = total_points
+
+    #Can only select 2 rank 3 pieces
     while rank_3 < 2:
         rank_3 = 0
         total_points = rankIII_points
