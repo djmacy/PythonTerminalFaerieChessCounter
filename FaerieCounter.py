@@ -173,7 +173,7 @@ while run:
             check_for_rankII(catapult)
             total_points += catapult * catapult_value
             rank_2 += catapult
-        elif catapult != "n" or catapult != "y":
+        elif catapult != "n" and catapult != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -188,7 +188,7 @@ while run:
             check_for_rankII(chamberlain)
             total_points += chamberlain * chamberlain_value
             rank_2 += chamberlain
-        elif chamberlain != "n" or chamberlain != "y":
+        elif chamberlain != "n" and chamberlain != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -203,7 +203,7 @@ while run:
             check_for_rankII(courtesan)
             total_points += courtesan * courtesan_value
             rank_2 += courtesan
-        elif courtesan != "n" or courtesan != "y":
+        elif courtesan != "n" and courtesan != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -218,7 +218,7 @@ while run:
             check_for_rankII(herald)
             total_points += herald * herald_value
             rank_2 += herald
-        elif herald != "n" or herald != "y":
+        elif herald != "n" and herald != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -233,7 +233,7 @@ while run:
             check_for_rankII(inquisitor)
             total_points += inquisitor * inquisitor_value
             rank_2 += inquisitor
-        elif inquisitor != "n" or inquisitor != "y":
+        elif inquisitor != "n" and inquisitor != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -248,7 +248,7 @@ while run:
             check_for_rankII(lancer)
             total_points += lancer * lancer_value
             rank_2 += lancer
-        elif lancer != "n" or lancer != "y":
+        elif lancer != "n" and lancer != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -263,7 +263,7 @@ while run:
             check_for_rankII(pontiff)
             total_points += pontiff * pontiff_value
             rank_2 += pontiff
-        elif pontiff != "n" or pontiff != "y":
+        elif pontiff != "n" and pontiff != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -278,7 +278,7 @@ while run:
             check_for_rankII(thief)
             total_points += thief * thief_value
             rank_2 += thief
-        elif thief != "n" or thief != "y":
+        elif thief != "n" and thief != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -293,7 +293,7 @@ while run:
             check_for_rankII(tower)
             total_points += tower * tower_value
             rank_2 += tower
-        elif tower != "n" or tower != "y":
+        elif tower != "n" and tower != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
             continue
@@ -322,14 +322,17 @@ while run:
         jester_value = 12
         regent_value = 15
 
-        print("Enter 0 for no and 1 to yes")
-        queen = int(input("Would you like a queen: "))
-        if (queen > 1 or queen < 0):
-            print("Please insert 0 or 1")
-            continue
-        elif (queen == 1):
+
+
+        print("For the rest of these insert y for yes and n for no")
+        queen = input("Would you like a queen: ")
+        if (queen == "y"):
+            queen = 1
             total_points += queen * queen_value
-            rank_3 += queen
+        elif (queen == "n" and queen != "y"):
+            rank_3 = 0
+            print("please insert a valid value: y or n")
+            continue
         else:
             print("Since you did not select a queen you automatically get a jester")
             jester = 1
@@ -342,14 +345,14 @@ while run:
             rank_3 += king
             break
 
-        king = (int(input("Would you like a king: ")))
-        if (king > 1  or king < 0):
-            print("Please insert 0 or 1")
-            continue
-        elif (king == 1):
+        king = input("Would you like a knig: ")
+        if (king == "y"):
+            king = 1
             total_points += king * king_value
-            rank_3 += king
-            break
+        elif (king == "n" and king != "y"):
+            rank_3 = 0
+            print("please insert a valid value: y or n")
+            continue
         else:
             print("Since you did not select a king you automatically get a regent")
             regent = 1
