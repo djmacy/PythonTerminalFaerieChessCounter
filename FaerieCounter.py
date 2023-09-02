@@ -1,13 +1,14 @@
-#David Macy
-#This is a terminal application that asks the user which pieces it would like to use for the faerie chess board game.
-#Once all the pieces have been selected it will count up how many points the user has left or if they picked too many pieces.
-#This was created so people do not need to count up the points themselves but rather have the application do it and let them know if they have points to spare
+# David Macy
+# This is a terminal application that asks the user which pieces it would like to use for the Brybelly faerie chess board game.
+# Once all the pieces have been selected it will count up how many points the user has left or if they picked too many pieces.
+# This was created so people do not need to count up the points themselves but rather have the application do it and let them know if they have points to spare.
 
 
-#check to see if there are more than 1 piece or less than 0 pieces selected to see if user picked a valid amount when selecting for rank II pieces
+# check to see if there are more than 1 piece or less than 0 pieces selected to see if user picked a valid amount when selecting for rank II pieces
 def check_for_rankII(piece):
     if piece > 1 or piece < 0:
         print("Please select 0 to 1", piece)
+
 
 run = True
 
@@ -21,14 +22,14 @@ while run:
     rank_2 = 0
     rank_3 = 0
 
-    print("Hello! Welcome to the Faerie Chess Counter\n\nBegin by choosing the difficulty. Insert B for beginner, I for "
-          "intermediate, and A for advanced")
+    print(
+        "Hello! Welcome to the Faerie Chess Counter\n\nBegin by choosing the difficulty. Insert B for beginner, I for "
+        "intermediate, and A for advanced")
 
-    #This is where the user will select which difficulty they are playing on. The difficulty will determine how many points
-    #they can have when choosing their pieces
+    # This is where the user will select which difficulty they are playing on. The difficulty will determine how many points
+    # they can have when choosing their pieces
     while choose_diff:
         difficulty = input("\nWhat difficulty are you playing on:\n").upper()
-        #print(type(difficulty))
         if difficulty == "B":
             print("Great you will play with 60 - 65 points")
             min_points = 60
@@ -48,7 +49,7 @@ while run:
             choose_diff = False
             break
         else:
-            difficulty = print("Please choose B, I, or A")
+            print("Please choose B, I, or A")
             continue
 
     #The user can only select 8 rank I pieces so it will break when the user selects more than 8
@@ -56,10 +57,11 @@ while run:
         rank_1 = 0
         total_points = 0
 
+        #This is how many points the each piece is worth
         pawn_value = 1
         peasant_value = 2
         soldier_value = 3
-
+        #This is the maximum number of pieces available for each piece.
         pawn_limit = 8
         peasant_limit = 2
         soldier_limit = 2
@@ -75,7 +77,9 @@ while run:
         if pawn < 4 or pawn > pawn_limit:
             print("Invalid input. Please select between 4 and", pawn_limit, "pawns.")
             continue
+        #This variable will keep track of how many points the user has until the end of the script
         total_points += pawn * pawn_value
+        #rank_1 will determine when we have selected the right number of pieces. 8 is the maximum number of rank_1 pieces
         rank_1 += pawn
         if rank_1 == 8:
             print("You have selected the maximum number of Rank I pieces")
@@ -87,7 +91,7 @@ while run:
             print("Due to picking 4 pawns you will automatically get 2 peasants and 2 soldiers")
             break
         elif rank_1 > 4:
-            peasant_min = max(0,8 - (rank_1 + soldier_limit))
+            peasant_min = max(0, 8 - (rank_1 + soldier_limit))
             peasant_limit = min(2, 8 - rank_1)
 
         print("You can select from", peasant_min, "to", peasant_limit, "peasants")
@@ -112,15 +116,16 @@ while run:
             rank_1 += soldier
     print("You selected", pawn, "Pawns", peasant, "Peasants", soldier, "Soldiers")
     print("Total points for Rank I pieces:", total_points, ". You have", max_points - total_points, "points left!\nNow"
-            " lets pick your Rank II pieces. You can only select 6 Rank II pieces.")
+        " lets pick your Rank II pieces. You can only select 6 Rank II pieces.")
 
     rankI_points = total_points
 
     done_selecting = False
 
-    #User can only select 6 rank_2 pieces and will break when the user has selected more than 6
+    # User can only select 6 rank_2 pieces and will break when the user has selected more than 6
     while rank_2 < 6 and not done_selecting:
         total_points = rankI_points
+        #This is the value of each rank_II piece
         rook_value = 9
         knight_value = 4
         bishop_value = 6
@@ -136,12 +141,12 @@ while run:
 
         classical_limit = 2
         new_limit = 1
-
+        #This will make sure that we get to six total pieces selected
         rank_2 = 0
-
+        #Again similar with the Rank I pieces we have a limited number of pieces that the user can pick. For rank_II its 6
         print("Please select 6 Rank II pieces!")
-
         rook = int(input("How many rooks would you like: "))
+        #classical_limit is 2 because in the original game of chess you have 2 rooks, 2 bishops, and 2 knights
         if rook > classical_limit or rook < 0:
             print("Invalid input. Please select between 0 and", classical_limit, "rooks.")
             continue
@@ -165,7 +170,7 @@ while run:
         if rank_2 == 6:
             done_selecting = True
             break
-
+        #There is only one of each piece that you can select from after you are done selecting from rooks, knights, and bishops.
         print("\nFor the rest of these insert y for yes and n for no")
         catapult = (input("Would you like a catapult: "))
         if catapult == "y":
@@ -173,6 +178,7 @@ while run:
             check_for_rankII(catapult)
             total_points += catapult * catapult_value
             rank_2 += catapult
+        #If the user provides bad input we will restart the entire loop
         elif catapult != "n" and catapult != "y":
             rank_2 = 0
             print("please insert a valid value: y or n")
@@ -298,7 +304,6 @@ while run:
             print("please insert a valid value: y or n")
             continue
 
-
         if rank_2 == 6:
             done_selecting = True
             break
@@ -310,19 +315,17 @@ while run:
     print("Total points for Rank II & Rank I pieces:", total_points, ". You have", max_points - total_points,
           "points left!\nNow lets pick your Rank III pieces. You can only select 2 Rank III pieces.")
 
-
     rankIII_points = total_points
 
-    #Can only select 2 rank 3 pieces
+    # Can only select 2 rank_III pieces
     while rank_3 < 2:
         rank_3 = 0
         total_points = rankIII_points
+        #This is the worth of each rank_III piece
         queen_value = 12
         king_value = 0
         jester_value = 12
         regent_value = 15
-
-
 
         print("For the rest of these insert y for yes and n for no")
         queen = input("Would you like a queen: ")
@@ -345,7 +348,7 @@ while run:
             rank_3 += king
             break
 
-        king = input("Would you like a knig: ")
+        king = input("Would you like a king: ")
         if (king == "y"):
             king = 1
             total_points += king * king_value
