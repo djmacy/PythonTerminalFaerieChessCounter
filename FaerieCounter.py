@@ -139,6 +139,8 @@ while run:
 
         rank_2 = 0
 
+        print("Please select 6 Rank II pieces!")
+
         rook = int(input("How many rooks would you like: "))
         if rook > classical_limit or rook < 0:
             print("Invalid input. Please select between 0 and", classical_limit, "rooks.")
@@ -164,7 +166,7 @@ while run:
             done_selecting = True
             break
 
-        print("\nFor the rest of these insert 0 for no and 1 for yes")
+        print("\nFor the rest of these insert n for no and y for yes")
         catapult = int(input("Would you like a catapult: "))
         check_for_rankII(catapult)
         total_points += catapult * catapult_value
@@ -242,6 +244,8 @@ while run:
         total_points += tower * tower_value
         rank_2 += tower
 
+        print("You only selected", rank_2, "pieces. Be sure to select 6 rank II pieces. The count will now reset!" )
+
         if rank_2 == 6:
             done_selecting = True
             break
@@ -297,7 +301,7 @@ while run:
             break
 
     print("You have selected all of your Rank III pieces")
-    print("Total points for Rank III pieces:", total_points,". You have", max_points - total_points,
+    print("Total points for Rank III pieces:", total_points, ". You have", max_points - total_points,
           "points left!")
     redo = input("Would you like to change the difficulty or pick different pieces? Insert y or n: ").lower()
     if redo != "y":
