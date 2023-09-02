@@ -166,89 +166,145 @@ while run:
             done_selecting = True
             break
 
-        print("\nFor the rest of these insert n for no and y for yes")
-        catapult = int(input("Would you like a catapult: "))
-        check_for_rankII(catapult)
-        total_points += catapult * catapult_value
-        rank_2 += catapult
+        print("\nFor the rest of these insert y for yes and n for no")
+        catapult = (input("Would you like a catapult: "))
+        if catapult == "y":
+            catapult = 1
+            check_for_rankII(catapult)
+            total_points += catapult * catapult_value
+            rank_2 += catapult
+        elif catapult != "n" or catapult != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        chamberlain = int(input("Would you like a chamberlain: "))
-        check_for_rankII(chamberlain)
-        total_points += chamberlain * chamberlain_value
-        rank_2 += chamberlain
+        chamberlain = (input("Would you like a chamberlain: "))
+        if chamberlain == "y":
+            chamberlain = 1
+            check_for_rankII(chamberlain)
+            total_points += chamberlain * chamberlain_value
+            rank_2 += chamberlain
+        elif chamberlain != "n" or chamberlain != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        courtesan = int(input("Would you like a courtesan: "))
-        check_for_rankII(courtesan)
-        total_points += courtesan * courtesan_value
-        rank_2 += courtesan
+        courtesan = (input("Would you like a courtesan: "))
+        if courtesan == "y":
+            courtesan = 1
+            check_for_rankII(courtesan)
+            total_points += courtesan * courtesan_value
+            rank_2 += courtesan
+        elif courtesan != "n" or courtesan != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        herald = int(input("Would you like a herald: "))
-        check_for_rankII(herald)
-        total_points += herald * herald_value
-        rank_2 += courtesan
+        herald = (input("Would you like a herald: "))
+        if herald == "y":
+            herald = 1
+            check_for_rankII(herald)
+            total_points += herald * herald_value
+            rank_2 += herald
+        elif herald != "n" or herald != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        inquisitor = int(input("Would you like an inquisitor: "))
-        check_for_rankII(inquisitor)
-        total_points += inquisitor * inquisitor_value
-        rank_2 += inquisitor
+        inquisitor = (input("Would you like a inquisitor: "))
+        if inquisitor == "y":
+            inquisitor = 1
+            check_for_rankII(inquisitor)
+            total_points += inquisitor * inquisitor_value
+            rank_2 += inquisitor
+        elif inquisitor != "n" or inquisitor != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        lancer = int(input("Would you like a lancer: "))
-        check_for_rankII(lancer)
-        total_points += lancer * lancer_value
-        rank_2 += lancer
+        lancer = (input("Would you like a lancer: "))
+        if lancer == "y":
+            lancer = 1
+            check_for_rankII(lancer)
+            total_points += lancer * lancer_value
+            rank_2 += lancer
+        elif lancer != "n" or lancer != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        pontiff = int(input("Would you like a pontiff: "))
-        check_for_rankII(pontiff)
-        total_points += pontiff * pontiff_value
-        rank_2 += pontiff
+        pontiff = (input("Would you like a pontiff: "))
+        if pontiff == "y":
+            pontiff = 1
+            check_for_rankII(pontiff)
+            total_points += pontiff * pontiff_value
+            rank_2 += pontiff
+        elif pontiff != "n" or pontiff != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        thief = int(input("Would you like a thief: "))
-        check_for_rankII(thief)
-        total_points += thief * thief_value
-        rank_2 += thief
+        thief = (input("Would you like a thief: "))
+        if thief == "y":
+            thief = 1
+            check_for_rankII(thief)
+            total_points += thief * thief_value
+            rank_2 += thief
+        elif thief != "n" or thief != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
         if rank_2 == 6:
             done_selecting = True
             break
 
-        tower = int(input("Would you like a tower: "))
-        check_for_rankII(tower)
-        total_points += tower * tower_value
-        rank_2 += tower
+        tower = (input("Would you like a tower: "))
+        if tower == "y":
+            tower = 1
+            check_for_rankII(tower)
+            total_points += tower * tower_value
+            rank_2 += tower
+        elif tower != "n" or tower != "y":
+            rank_2 = 0
+            print("please insert a valid value: y or n")
+            continue
 
-        print("You only selected", rank_2, "pieces. Be sure to select 6 rank II pieces. The count will now reset!" )
 
         if rank_2 == 6:
             done_selecting = True
             break
+        else:
+            print("You only selected", rank_2, "pieces. Be sure to select 6 rank II pieces. The count will now reset!")
+            continue
 
     print("You have selected all of your Rank II pieces")
     print("Total points for Rank II & Rank I pieces:", total_points, ". You have", max_points - total_points,
