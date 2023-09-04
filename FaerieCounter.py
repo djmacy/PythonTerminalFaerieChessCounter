@@ -332,7 +332,7 @@ while run:
         if (queen == "y"):
             queen = 1
             total_points += queen * queen_value
-        elif (queen == "n" and queen != "y"):
+        elif (queen != "n" and queen != "y"):
             rank_3 = 0
             print("please insert a valid value: y or n")
             continue
@@ -352,7 +352,7 @@ while run:
         if (king == "y"):
             king = 1
             total_points += king * king_value
-        elif (king == "n" and king != "y"):
+        elif (king != "n" and king != "y"):
             rank_3 = 0
             print("please insert a valid value: y or n")
             continue
