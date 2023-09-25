@@ -30,6 +30,7 @@ def calculate_rankI_points(min_points, max_points):
     pawn_min = 4
     # The user can only select 8 rank I pieces so it will break when the user selects more than 8
     while rank_1 < 8:
+        rank_1 = 0
         pawn = check_for_valid_input("How many pawns would you like: ")
 
         if pawn < pawn_min or pawn > pawn_limit:
