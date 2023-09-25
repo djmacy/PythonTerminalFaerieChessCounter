@@ -314,6 +314,35 @@ def calculate_rankIII(total_points, max_points):
 
     return total_points
 
+def choose_difficulty():
+    choose_diff = True
+    print(
+        "Hello! Welcome to the Faerie Chess Counter\n\nBegin by choosing the difficulty. Insert B for beginner, I for "
+        "intermediate, and A for advanced")
+    # This is where the user will select which difficulty they are playing on. The difficulty will determine how many points
+    # they can have when choosing their pieces
+    while choose_diff:
+        difficulty = input("\nWhat difficulty are you playing on:\n").upper()
+        if difficulty == "B":
+            print("Great you will play with 60 - 65 points")
+            min_points = 60
+            max_points = 65
+            break
+        elif difficulty == "I":
+            print("Great you will play with 65 - 70 points")
+            min_points = 65
+            max_points = 70
+            break
+        elif difficulty == "A":
+            print("Great you will play with 70 - 75 points")
+            min_points = 70
+            max_points = 75
+            break
+        else:
+            print("Please choose B, I, or A")
+            continue
+    return min_points, max_points
+
 # Define the main function to run the application
 def choose_difficulty():
     choose_diff = True
@@ -349,35 +378,8 @@ def main():
     run = True
 
     while run:
-        choose_diff = True
 
-        print(
-            "Hello! Welcome to the Faerie Chess Counter\n\nBegin by choosing the difficulty. Insert B for beginner, I for "
-            "intermediate, and A for advanced")
-
-        # This is where the user will select which difficulty they are playing on. The difficulty will determine how many points
-        # they can have when choosing their pieces
-        while choose_diff:
-            difficulty = input("\nWhat difficulty are you playing on:\n").upper()
-            if difficulty == "B":
-                print("Great you will play with 60 - 65 points")
-                min_points = 60
-                max_points = 65
-                break
-            elif difficulty == "I":
-                print("Great you will play with 65 - 70 points")
-                min_points = 65
-                max_points = 70
-                break
-            elif difficulty == "A":
-                print("Great you will play with 70 - 75 points")
-                min_points = 70
-                max_points = 75
-                break
-            else:
-                print("Please choose B, I, or A")
-                continue
-
+        min_points, max_points = choose_difficulty()
         total_points = calculate_rankI_points(min_points, max_points)
 
         print("Total points for Rank I pieces:", total_points, ". You have", max_points - total_points,
