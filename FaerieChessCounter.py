@@ -131,7 +131,7 @@ def calculate_rankII(total_points, max_points):
             continue
         rank_2_starting_points += bishop * bishop_value
         rank_2 += bishop
-
+        # have to  check after each question or the loop will not break until the bottom of while loop
         if rank_2 >= 6:
             total_points = rank_2_starting_points
             break
@@ -291,14 +291,14 @@ def calculate_rankIII(total_points, max_points):
         else:
             print("Invalid input. Please select 'y' or 'n'")
             continue
-
+        # If the user can not afford a regent we do not give him the option to select it
         if max_points - total_points <= regent_value:
             print("You do not have enough points for a regent so you will have to get a king.")
             king = 1
             total_points += king * king_value
             rank_3 += king
             break
-
+        # It will only allow the user to pick if he has enough points for a regent and even then the user can select whether he/she wants it or not
         king = input("Would you like a king: ")
         if king == "y":
             king = 1
@@ -314,8 +314,37 @@ def calculate_rankIII(total_points, max_points):
 
     return total_points
 
-
 # Define the main function to run the application
+def choose_difficulty():
+    choose_diff = True
+    print(
+        "Hello! Welcome to the Faerie Chess Counter\n\nBegin by choosing the difficulty. Insert B for beginner, I for "
+        "intermediate, and A for advanced")
+    # This is where the user will select which difficulty they are playing on. The difficulty will determine how many points
+    # they can have when choosing their pieces
+    while choose_diff:
+        difficulty = input("\nWhat difficulty are you playing on:\n").upper()
+        if difficulty == "B":
+            print("Great you will play with 60 - 65 points")
+            min_points = 60
+            max_points = 65
+            break
+        elif difficulty == "I":
+            print("Great you will play with 65 - 70 points")
+            min_points = 65
+            max_points = 70
+            break
+        elif difficulty == "A":
+            print("Great you will play with 70 - 75 points")
+            min_points = 70
+            max_points = 75
+            break
+        else:
+            print("Please choose B, I, or A")
+            continue
+    return min_points, max_points
+
+# Define the main function to run the flow of the application
 def main():
     run = True
 
